@@ -1,24 +1,45 @@
-# README
+# Best Available Seat
+A solution to return the best seat (closest to the front & middle)
+given a list of open seats. Rows follow alphabetical order
+with "a" being the first row. Columns follow numerical order
+from left to right.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ruby version
+```
+2.6.4
+```
 
-Things you may want to cover:
+### Rails version
+```
+6.0.2.2
+```
 
-* Ruby version
+### Configuration
+```shell
+bundle install
+yarn install
+``
 
-* System dependencies
+### Database creation
+```shell
+bundle exec rails db:setup
+or
+bundle exec rails db:create
+bundle exec rails db:migrate
+bundle exec rails db:seed
+```
 
-* Configuration
+### How to run the test suite
+```shell
+bundle exec rspec
+```
 
-* Database creation
+### Run the server
+```shell
+bundle exec rails server
+```
 
-* Database initialization
+```
+localhost:3000
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
