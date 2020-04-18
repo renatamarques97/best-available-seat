@@ -22,21 +22,19 @@ class VenueCreator
   end
 
   def create_seats
-    venue_params.each do |venue|
-      for row in 1..venue[:rows]
-        for column in 1..venue[:columns]
-          Seat.create!(
-            row: row,
-            column: column,
-            status: 1,
-            label: "#{row}#{column}",
-            venue_id: venue.id)
-        end
+    for row in 1..venue_params[:rows].to_i
+      for column in 1..venue_params[:columns].to_i
+        Seat.create!(
+          row: row,
+          column: column,
+          status: 1,
+          label: "#{row}#{column}",
+          venue_id: venue.id)
       end
     end
   end
 
   def venue_params
-    @venue_params ||= params[:venue]
+    @venue_params ||= params
   end
 end
