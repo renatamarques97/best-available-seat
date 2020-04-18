@@ -18,7 +18,7 @@ class VenueCreator
   private
 
   def venue
-    @venue ||= Venue.create!
+    @venue ||= Venue.create(params)
   end
 
   def create_seats
