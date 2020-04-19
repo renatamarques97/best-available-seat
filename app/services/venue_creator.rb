@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class VenueCreator
-  AVAILABLE = 1
+  AVAILABLE = 0
   INITIAL_LETTER = 'A'
 
   attr_reader :params
@@ -11,6 +11,8 @@ class VenueCreator
   end
 
   def perform
+    return false if invalid?
+
     ActiveRecord::Base.transaction do
       create_seats
     end
@@ -35,5 +37,9 @@ class VenueCreator
       end
       row_letter = row_letter.next
     end
+  end
+
+  def invalid?
+    venue.name.nil? || venue.rows.nil? || venue.columns.nil?
   end
 end
