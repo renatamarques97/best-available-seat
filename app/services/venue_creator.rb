@@ -22,15 +22,17 @@ class VenueCreator
   end
 
   def create_seats
+    row_letter = 'A'
     for row in 1..venue_params[:rows].to_i
       for column in 1..venue_params[:columns].to_i
         Seat.create!(
           row: row,
           column: column,
           status: 1,
-          label: "#{row}#{column}",
+          label: "#{row_letter}#{column}",
           venue_id: venue.id)
       end
+      row_letter = row_letter.succ
     end
   end
 
