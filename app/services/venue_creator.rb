@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class VenueCreator
+  AVAILABLE = 1
+  INITIAL_LETTER = 'A'
+
   attr_reader :params
 
   def initialize(params:)
@@ -10,8 +13,6 @@ class VenueCreator
   def perform
     ActiveRecord::Base.transaction do
       create_seats
-
-      venue
     end
   end
 
@@ -22,21 +23,17 @@ class VenueCreator
   end
 
   def create_seats
-    row_letter = 'A'
-    for row in 1..venue_params[:rows].to_i
-      for column in 1..venue_params[:columns].to_i
+    row_letter = INITIAL_LETTER
+    1.upto(venue.rows) do
+      for column in 1..venue.columns
         Seat.create!(
-          row: row,
+          row: row_letter,
           column: column,
-          status: 1,
+          status: AVAILABLE,
           label: "#{row_letter}#{column}",
           venue_id: venue.id)
       end
-      row_letter = row_letter.succ
+      row_letter = row_letter.next
     end
-  end
-
-  def venue_params
-    @venue_params ||= params
   end
 end
