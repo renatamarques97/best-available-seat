@@ -10,7 +10,7 @@ RSpec.describe 'VenuesController', type: :request do
       end
 
       let(:seats_count) do
-        valid_venue.dig(:venue ,:rows).to_i * valid_venue.dig(:venue, :columns).to_i
+        valid_venue.dig(:venue, :rows).to_i * valid_venue.dig(:venue, :columns).to_i
       end
 
       it 'post venues with status code 200' do
