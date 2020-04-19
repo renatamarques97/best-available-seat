@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :venue do
-    rows { 1 }
-    columns { 1 }
+    name { FFaker::Venue.name }
+    rows { FFaker::Random.rand(1..20) }
+    columns { FFaker::Random.rand(1..20) }
   end
 end

@@ -6,13 +6,7 @@ RSpec.describe 'VenuesController', type: :request do
   describe 'POST /api/venues' do
     context 'post venues successfully' do
       let(:valid_venue) do
-        {
-          venue: {
-            name: 'Theater',
-            rows: 3,
-            columns: 3
-          }
-        }
+        { venue: FactoryBot.attributes_for(:venue) }
       end
 
       let(:seats_count) do
