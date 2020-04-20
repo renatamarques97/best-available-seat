@@ -3,6 +3,6 @@ FactoryBot.define do
     row { 1 }
     column { 1 }
     label { "A1" }
-    status { 0 }
+    available { true }
   end
 end
