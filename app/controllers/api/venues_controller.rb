@@ -7,13 +7,13 @@ module Api
 
       if creator.perform
         render json: {
-          status: 'status.success',
-          message: 'venue.new.valid'
+          status: t('status.success'),
+          message: t('venue.new.valid')
         }, status: :ok
       else
         render json: {
-          status: 'status.error',
-          message: 'venue.new.invalid'
+          status: t('status.error'),
+          message: t('venue.new.invalid')
         }, status: :unprocessable_entity
       end
     end

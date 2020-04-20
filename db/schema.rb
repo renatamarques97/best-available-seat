@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2020_04_18_161451) do
   enable_extension "plpgsql"
 
   create_table "seats", force: :cascade do |t|
-    t.integer "row"
+    t.string "row"
     t.integer "column"
     t.string "label"
-    t.integer "status"
+    t.boolean "available"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "venue_id", null: false
@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 2020_04_18_161451) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string "name"
-    t.integer "rows"
-    t.integer "columns"
+    t.string "name", null: false
+    t.integer "rows", null: false
+    t.integer "columns", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

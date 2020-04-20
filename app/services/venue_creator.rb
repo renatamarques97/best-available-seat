@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class VenueCreator
-  AVAILABLE = 0
   INITIAL_LETTER = 'A'
 
   attr_reader :params
@@ -31,7 +30,7 @@ class VenueCreator
         Seat.create!(
           row: row_letter,
           column: column,
-          status: AVAILABLE,
+          available: true,
           label: "#{row_letter}#{column}",
           venue_id: venue.id)
       end
