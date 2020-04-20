@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_161451) do
     t.string "row"
     t.integer "column"
     t.string "label"
-    t.integer "status"
+    t.boolean "available"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "venue_id", null: false

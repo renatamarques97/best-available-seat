@@ -4,7 +4,7 @@ class CreateSeats < ActiveRecord::Migration[6.0]
       t.string :row
       t.integer :column
       t.string :label
-      t.integer :status
+      t.boolean :available
 
       t.timestamps
     end
