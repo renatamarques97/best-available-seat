@@ -11,8 +11,8 @@ RSpec.describe 'VenuesController', type: :request do
 
       let(:message) do
         {
-          "message" => "venue.new.valid",
-          "status" => "status.success"
+          "message" => I18n.t("venue.new.valid"),
+          "status" => I18n.t("status.success")
         }
       end
 
@@ -49,8 +49,8 @@ RSpec.describe 'VenuesController', type: :request do
 
       let(:message) do
         {
-          "message" => "venue.new.invalid",
-          "status" => "status.error"
+          "message" => I18n.t("venue.new.invalid"),
+          "status" => I18n.t("status.error")
         }
       end
 
