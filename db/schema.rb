@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_161451) do
   enable_extension "plpgsql"
 
   create_table "seats", force: :cascade do |t|
-    t.integer "row"
+    t.string "row"
     t.integer "column"
     t.string "label"
     t.integer "status"
@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 2020_04_18_161451) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string "name"
-    t.integer "rows"
-    t.integer "columns"
+    t.string "name", default: "Unkown", null: false
+    t.integer "rows", default: 0, null: false
+    t.integer "columns", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
