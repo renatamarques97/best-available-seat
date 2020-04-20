@@ -4,9 +4,10 @@ module Api
   class SeatsController < ApplicationController
     def update
       seat = Seat.find(params[:id])
-      status = params.permit(:status)
+      status = params.permit(:available)
+      bool = params[:available].in? ["true", "false"]
 
-      if (seat.update(status))
+      if (seat.update(status)) && bool
         render json: {
           status: t('status.success'),
           message: t('seat.update.valid')
