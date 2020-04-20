@@ -65,7 +65,7 @@ RSpec.describe 'SeatsController', type: :request do
         expect(JSON.parse(response.body)).to eq(message)
       end
 
-      it 'status do not changed' do
+      it 'status has not changed' do
         put '/api/seats/' + Seat.last.id.to_s, params: unavailable
         expect(Seat.last.available).to_not eq(invalid_param)
       end
