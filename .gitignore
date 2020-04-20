@@ -30,3 +30,6 @@ yarn-debug.log*
 
 # Ignore simple-cov folder
 /coverage
+
+# Ignore mac files
+.DS_Store

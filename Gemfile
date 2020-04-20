@@ -18,6 +18,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0'
   gem 'ffaker'
   gem 'shoulda-matchers'
+  gem 'pry'
+  gem 'pry-nav'
 end
 
 group :development do
