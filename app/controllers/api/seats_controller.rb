@@ -5,7 +5,7 @@ module Api
     def update
       seat = Seat.find(params[:id])
       status = params.permit(:available)
-      bool = params[:available].in? ["true", "false"]
+      bool = params[:available].in? [true, false, "true", "false"]
 
       if (seat.update(status)) && bool
         render json: {
