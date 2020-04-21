@@ -19,7 +19,6 @@ RSpec.describe 'BestSeatsController', type: :request do
 
       xit 'get best seat' do
         get '/api/best_seats'
-        # binding.pry
         expect(JSON.parse(response.body)).to include(expected)
       end
 

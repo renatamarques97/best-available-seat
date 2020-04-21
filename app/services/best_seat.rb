@@ -8,14 +8,13 @@ class BestSeat
   end
 
   def query
-    binding.pry
     @query ||= Seat.where(venue_id: @venue_id, available: true)
   end
 
   def perform(seats_num = 1)
     arr = Array.new
-    @query.each do |seat|
-      arr << seat[1][:label]
+    query.each do |seat|
+      arr << seat[:label]
     end
     mid = arr.length / 2
     arr.sort[mid..mid + seats_num - 1]
