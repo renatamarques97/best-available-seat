@@ -79,7 +79,7 @@ localhost:3000/api/seats/:id
 input example:
 ```json
 {
-  "available": false
+  "available": "false"
 }
 ```
 output:
