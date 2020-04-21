@@ -53,11 +53,11 @@ localhost:3000/api/venues
 input example:
 ```json
 {
-	"venue": {
-		"name": "Theater",
-		"rows": 3,
-		"columns": 3
-	}
+  "venue": {
+    "name": "Theater",
+    "rows": 3,
+    "columns": 3
+  }
 }
 ```
 output:
@@ -79,7 +79,7 @@ localhost:3000/api/seats/:id
 input example:
 ```json
 {
-	"available": false
+  "available": false
 }
 ```
 output:
@@ -96,10 +96,16 @@ The third and last phase:
 - Get the best seat, passing the amount that the person desired.
 
 ```
-localhost:3000/api/best_seats
+localhost:3000/api/best_seats?venue_id=1
 ```
-output:
+output exemple:
 ```json
-
+{
+  "status": "SUCCESS",
+  "message": "Best Seat Successfully Found",
+  "data": [
+    "B2"
+  ]
+}
 ```
 
