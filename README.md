@@ -96,7 +96,7 @@ The third and last phase:
 - Get the best seat, passing the amount that the person desired.
 
 ```
-localhost:3000/api/best_seats?venue_id=1
+localhost:3000/api/best_seats?venue_id=3&seats_requested=1
 ```
 output exemple:
 ```json
