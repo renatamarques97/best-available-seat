@@ -1,5 +1,11 @@
 module BestSeats
   class Finder
+    INITIAL_ROW = "A"
+    INITIAL_ROW_INDEX = 0
+    INITIAL_COLUMN_INDEX = 1
+    INITIAL_SET_INDEX = 0
+    DENOMINATOR = 2.0
+
     attr_reader :params, :seats_requested
 
     def initialize(venue_id, seats_requested)
@@ -16,7 +22,7 @@ module BestSeats
 
         selected_seats = []
 
-        (0...seats_requested).each do |seat|
+        (INITIAL_SET_INDEX...seats_requested).each do |seat|
           index = index_to_remove(line)
           value = line.delete_at(index)
           selected_seats << value
@@ -59,19 +65,19 @@ module BestSeats
 
     def index_to_remove(collection)
       sorted = collection.sort
-      mid = (sorted.size - 1) / 2.0
-      ((mid.floor + mid.ceil) / 2.0).to_i
+      mid = (sorted.size - 1) / DENOMINATOR
+      ((mid.floor + mid.ceil) / DENOMINATOR).to_i
     end
 
     def matrix
       return @_matrix if defined?(@_matrix)
 
-      row_letter = "A"
+      row_letter = INITIAL_ROW
 
-      @_matrix = (0...rows).map.with_index do |row, index|
-        row_letter = index.zero? ? "A" : row_letter.next
+      @_matrix = (INITIAL_ROW_INDEX...rows).map.with_index do |row, index|
+        row_letter = index.zero? ? INITIAL_ROW : row_letter.next
 
-        (1..columns).map do |column|
+        (INITIAL_COLUMN_INDEX..columns).map do |column|
           "#{row_letter}#{column}"
         end
       end
