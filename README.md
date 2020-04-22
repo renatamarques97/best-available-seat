@@ -39,7 +39,73 @@ bundle exec rspec
 bundle exec rails server
 ```
 
+## Documentation
+
+POST
+The first phase, create a venue and define the size:
+- Venue creation with rows and columns with
+automatic labels on the seats, based on row
+and column (ex: a1, e4) and all by default being available.
+
 ```
-localhost:3000
+localhost:3000/api/venues
+```
+input example:
+```json
+{
+  "venue": {
+    "name": "Theater",
+    "rows": 3,
+    "columns": 3
+  }
+}
+```
+output:
+```json
+{
+  "status": "SUCCESS",
+  "message": "Venue Successfully Created"
+}
+```
+
+
+PUT
+The second phase, define which seats are occupied:
+- With all the labels defined, it's time to tell if there are any seat(s) occupied.
+
+```
+localhost:3000/api/seats/:id
+```
+input example:
+```json
+{
+  "available": "false"
+}
+```
+output:
+```json
+{
+  "status": "SUCCESS",
+  "message": "Seat Successfully Updated"
+}
+```
+
+
+GET
+The third and last phase:
+- Get the best seat, passing the amount that the person desired.
+
+```
+localhost:3000/api/best_seats?venue_id=3&seats_requested=1
+```
+output exemple:
+```json
+{
+  "status": "SUCCESS",
+  "message": "Best Seat Successfully Found",
+  "data": [
+    "B2"
+  ]
+}
 ```
 
