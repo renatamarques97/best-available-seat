@@ -74,7 +74,7 @@ The second phase, define which seats are occupied:
 - With all the labels defined, it's time to tell if there are any seat(s) occupied.
 
 ```
-localhost:3000/api/seats/:id
+localhost:3000/api/seats/[:id]
 ```
 input example:
 ```json
@@ -96,7 +96,7 @@ The third and last phase:
 - Get the best seat, passing the amount that the person desired.
 
 ```
-localhost:3000/api/best_seats?venue_id=3&seats_requested=1
+localhost:3000/api/best_seats?venue_id=[:venue_id]&seats_requested=[:seats_requested]
 ```
 output exemple:
 ```json
