@@ -18,7 +18,7 @@ from left to right.
 ```shell
 bundle install
 yarn install
-``
+```
 
 ### Database creation
 ```shell
@@ -26,7 +26,6 @@ bundle exec rails db:setup
 or
 bundle exec rails db:create
 bundle exec rails db:migrate
-bundle exec rails db:seed
 ```
 
 ### How to run the test suite
