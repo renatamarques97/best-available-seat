@@ -17,11 +17,11 @@ class VenueCreator
     end
   end
 
-  private
-
   def venue
     @venue ||= Venue.create(params)
   end
+
+  private
 
   def create_seats
     row_letter = INITIAL_LETTER
