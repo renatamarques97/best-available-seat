@@ -12,7 +12,8 @@ RSpec.describe 'VenuesController', type: :request do
       let(:message) do
         {
           "message" => I18n.t("venue.new.valid"),
-          "status" => I18n.t("status.success")
+          "status" => I18n.t("status.success"),
+          "venue_id"=> Venue.last.id
         }
       end
 
