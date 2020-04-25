@@ -3,6 +3,23 @@
 require 'rails_helper'
 
 RSpec.describe 'SeatsController', type: :request do
+  describe 'GET /api/seats' do
+    context 'get seats successfully' do
+      let(:venue) do
+        FactoryBot.attributes_for(:venue)
+      end
+
+      before do
+        VenueCreator.new(params: venue).perform
+      end
+
+      it 'get with status code 200' do
+        get '/api/venues/' + Venue.last.id.to_s + '/seats/'
+        expect(response).to have_http_status(200)
+      end
+    end
+  end
+
   describe 'PUT /api/seats' do
     context 'update status successfully' do
       let(:venue) do
