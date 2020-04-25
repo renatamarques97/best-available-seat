@@ -13,7 +13,6 @@ class VenueCreator
     return false if venue.invalid?
 
     ActiveRecord::Base.transaction do
-      venue.save!
       create_seats
       true
     end

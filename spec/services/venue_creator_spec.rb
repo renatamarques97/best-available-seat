@@ -13,39 +13,39 @@ RSpec.describe VenueCreator, type: :service do
         valid_venue.dig(:rows).to_i * valid_venue.dig(:columns).to_i
       end
 
-      it 'create venue with method .perform' do
+      it 'creates venue with method .perform' do
         expect(described_class.new(params: valid_venue).perform).to eq(true)
       end
 
-      it 'change count by 1' do
+      it 'changes venue`s count by 1' do
         expect { described_class.new(params: valid_venue).perform }.to change { Venue.count }.by(1)
       end
 
-      it 'change count of seats' do
+      it 'changes count of seats' do
         expect { described_class.new(params: valid_venue).perform }.to change { Seat.count }.by(seats_count)
       end
 
-      it 'create seats label' do
+      it 'creates seat`s label' do
         described_class.new(params: valid_venue).perform
         expect(Seat.first.label).to eq('A1')
       end
     end
 
-    context 'do not create venue' do
+    context 'does not create venue' do
       let(:invalid_venue) do
         { rows: 1, columns: 1 }
       end
 
-      it 'do not create venue with invalid params' do
+      it 'does not create venue with invalid params' do
         expect(described_class.new(params: invalid_venue).perform).to eq(false)
       end
 
-      it 'do not change count' do
-        expect { described_class.new(params: invalid_venue).perform }.to change { Venue.count }.by(0)
+      it 'does not change count' do
+        expect { described_class.new(params: invalid_venue).perform }.to_not change { Venue.count }
       end
 
-      it 'change count of seats' do
-        expect { described_class.new(params: invalid_venue).perform }.to change { Seat.count }.by(0)
+      it 'does not change count of seats' do
+        expect { described_class.new(params: invalid_venue).perform }.to_not change { Seat.count }
       end
     end
   end

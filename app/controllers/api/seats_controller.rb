@@ -3,9 +3,8 @@
 module Api
   class SeatsController < ApplicationController
     def index
-      venue = Venue.find(params[:venue_id])
-
-      render json: venue.seats
+      seats = Seat.where(venue_id: params[:venue_id])
+      render json: seats
     end
 
     def update
