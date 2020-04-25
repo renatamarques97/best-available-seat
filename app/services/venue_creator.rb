@@ -10,18 +10,19 @@ class VenueCreator
   end
 
   def perform
-    return false if invalid?
+    return false if venue.invalid?
 
     ActiveRecord::Base.transaction do
       create_seats
+      true
     end
   end
-
-  private
 
   def venue
     @venue ||= Venue.create(params)
   end
+
+  private
 
   def create_seats
     row_letter = INITIAL_LETTER
@@ -36,9 +37,5 @@ class VenueCreator
       end
       row_letter = row_letter.next
     end
-  end
-
-  def invalid?
-    venue.name.nil? || venue.rows.nil? || venue.columns.nil?
   end
 end

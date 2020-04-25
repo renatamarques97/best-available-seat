@@ -68,9 +68,11 @@ output:
 ```
 
 
-PUT
 The second phase, define which seats are occupied:
 - With all the labels defined, it's time to tell if there are any seat(s) occupied.
+
+PUT
+- Update just a single seat:
 
 ```
 localhost:3000/api/seats/[:id]
@@ -83,6 +85,26 @@ input example:
 ```
 output:
 ```json
+{
+  "status": "SUCCESS",
+  "message": "Seat Successfully Updated"
+}
+```
+POST
+- Update a batch of seats:
+
+```
+localhost:3001/api/batch_update_seats
+```
+input example:
+```json
+{
+  "seats_ids": ["342", "343"],
+  "available": false
+}
+```
+output:
+```
 {
   "status": "SUCCESS",
   "message": "Seat Successfully Updated"

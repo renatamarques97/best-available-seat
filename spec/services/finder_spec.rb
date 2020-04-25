@@ -77,7 +77,7 @@ RSpec.describe BestSeats::Finder, type: :service do
       let(:seats_requested) { 2 }
 
       let(:venue) do
-        { name: 'Venue', rows: 4, columns: 4}
+        { name: 'Venue', rows: 4, columns: 4 }
       end
 
       let(:venue_id) do

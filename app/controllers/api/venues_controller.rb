@@ -2,13 +2,20 @@
 
 module Api
   class VenuesController < ApplicationController
+    def index
+      @venues = Venue.all
+
+      render json: @venues
+    end
+
     def create
       creator = VenueCreator.new(params: venue_params)
 
       if creator.perform
         render json: {
           status: t('status.success'),
-          message: t('venue.new.valid')
+          message: t('venue.new.valid'),
+          venue_id: creator.venue.id,
         }, status: :ok
       else
         render json: {

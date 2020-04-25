@@ -3,6 +3,16 @@
 require 'rails_helper'
 
 RSpec.describe 'VenuesController', type: :request do
+
+  describe 'GET /api/venues' do
+    context 'get venues successfully' do
+      it 'get with status code 200' do
+        get '/api/venues'
+        expect(response).to have_http_status(200)
+      end
+    end
+  end
+
   describe 'POST /api/venues' do
     context 'post venues successfully' do
       let(:valid_venue) do
@@ -12,7 +22,8 @@ RSpec.describe 'VenuesController', type: :request do
       let(:message) do
         {
           "message" => I18n.t("venue.new.valid"),
-          "status" => I18n.t("status.success")
+          "status" => I18n.t("status.success"),
+          "venue_id"=> Venue.last.id
         }
       end
 

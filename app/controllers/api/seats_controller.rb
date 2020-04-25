@@ -2,6 +2,11 @@
 
 module Api
   class SeatsController < ApplicationController
+    def index
+      seats = Seat.where(venue_id: params[:venue_id])
+      render json: seats
+    end
+
     def update
       seat = Seat.find(params[:id])
       status = params.permit(:available)
