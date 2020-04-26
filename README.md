@@ -35,7 +35,7 @@ bundle exec rspec
 
 ### Run the server
 ```shell
-bundle exec rails server
+bundle exec rails server -p 3001
 ```
 
 ## Documentation
